@@ -6,48 +6,49 @@ body {
 }
 
 .webcam {
-  padding: 80px 40px;
+  padding: 60px 20px; /* más compacto */
   text-align: center;
   background: #fafafa;
 }
 
 .webcam h2 {
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 16px; /* título más cerca del video */
 }
 
+/* Ventanita de la webcam */
 .video-wrapper {
-  position: relative;
-  max-width: 1000px;
+  max-width: 420px;      /* tamaño tipo widget */
   margin: 0 auto;
-  padding-top: 56.25%; /* 16:9 */
   background: #000;
   border-radius: 12px;
   overflow: hidden;
 }
 
 .video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  height: 280px;         /* altura real del stream */
   border: 0;
+  display: block;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .webcam {
-    padding: 60px 20px;
-  }
-
   .webcam h2 {
     font-size: 1.5rem;
+  }
+
+  .video-wrapper iframe {
+    height: 240px;
   }
 }
 
 @media (max-width: 480px) {
   .webcam h2 {
     font-size: 1.3rem;
+  }
+
+  .video-wrapper iframe {
+    height: 220px;
   }
 }
