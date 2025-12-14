@@ -6,44 +6,45 @@ body {
 }
 
 .webcam {
-  padding: 40px 16px;
+  padding: 60px 20px;
   text-align: center;
   background: #fafafa;
 }
 
 .webcam h2 {
   font-size: 2rem;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-/* CONTENEDOR GRANDE REAL */
+/* CONTENEDOR GRANDE */
 .video-wrapper {
-  width: 100%;
-  max-width: none;          /* 🔴 clave */
+  position: relative;
+  max-width: 1000px;
   margin: 0 auto;
   background: #000;
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 12px;
+  overflow: hidden; /* 🔑 recorta las bandas */
+  aspect-ratio: 16 / 9; /* 🔑 mantiene tamaño grande */
 }
 
-/* IFRAME FORZADO */
+/* PLAYER CENTRADO Y ESCALADO */
 .video-wrapper iframe {
-  width: 100vw;             /* 🔴 fuerza ancho real */
-  max-width: 100%;
-  height: 70vh;             /* 🔴 ocupa pantalla */
-  min-height: 500px;        /* 🔴 nunca pequeño */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 120%;        /* 🔑 más alto para evitar bandas */
+  transform: translate(-50%, -50%);
   border: 0;
-  display: block;
 }
 
-/* Mobile */
+/* Responsive */
 @media (max-width: 768px) {
   .webcam h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
-  .video-wrapper iframe {
-    height: 50vh;
-    min-height: 320px;
+  .video-wrapper {
+    aspect-ratio: 4 / 3; /* más alto en móvil */
   }
 }
